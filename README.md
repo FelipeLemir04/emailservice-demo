@@ -12,7 +12,7 @@ Se seleccionó el microservicio `emailservice` desarrollado en Python, ubicado e
 
 a) Clonar el microservicio
 
-```bash
+
 git clone https://github.com/GoogleCloudPlatform/microservices-demo.git
 cd microservices-demo/src/emailservice
 
@@ -48,7 +48,7 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
 
-    - name: Log in to DockerHub
+     - name: Log in to DockerHub
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
