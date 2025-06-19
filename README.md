@@ -34,25 +34,29 @@ git push -u origin main
 
 Crear el archivo .github/workflows/docker-build-publish.yml con el siguiente contenido:
 
-name: Build and Push Docker image
+    name: Build and Push Docker image
 
-on:
-  push:
-    branches:
-      - main
+      on:
+        push:
+          branches:
+            - main
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Checkout repo
+        uses: actions/checkout@v3
+
+
 
      - name: Log in to DockerHub
       uses: docker/login-action@v3
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
